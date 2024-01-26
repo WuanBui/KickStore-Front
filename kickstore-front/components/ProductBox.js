@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import Button from "./Button";
-import CartIcon from "./icons/CartIcon";
+import CartIcon from "@/components/icons/CartIcon";
+import Link from "next/link";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
 
 const ProductWrapper = styled.div``;
 
-const WhiteBox = styled.div`
+const WhiteBox = styled(Link)`
   background-color: #fff;
   padding: 20px;
   height: 120px;
@@ -19,11 +22,11 @@ const WhiteBox = styled.div`
   }
 `;
 
-const Title = styled.h2`
+const Title = styled(Link)`
   font-weight: normal;
   font-size: 0.9rem;
-  color:inherit;
-  text-decoration:none;
+  color: inherit;
+  text-decoration: none;
   margin: 0;
 `;
 
@@ -54,13 +57,14 @@ text-align: right;
 `;
 
 export default function ProductBox({ _id, title, description, price, images }) {
-  const url = "/product/" + _id;
+    const {addProduct} = useContext(CartContext);
+    const url = "/product/" + _id;
   
     return (
     <ProductWrapper>
       <WhiteBox href={url}>
         <div>
-          <img src={images[0]} alt="" />
+          <img src={images?.[0]} alt="" />
         </div>
       </WhiteBox>
       <ProductInfoBox>

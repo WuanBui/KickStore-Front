@@ -3,7 +3,7 @@ import { primary } from "@/lib/colors";
 
 export const ButtonStyle = css`
 border: 0;
-color: #fff;
+color: black;
 padding: 5px 15px;
 border-radius: 5px;
 cursor: pointer;
