@@ -101,19 +101,8 @@ export default function CartPage() {
   function lessOfThisProduct(id) {
     removeProduct(id);
   }
-  async function goToPayment() {
-    const response = await axios.post("/api/checkout", {
-      name,
-      email,
-      city,
-      postalCode,
-      streetAddress,
-      country,
-      cartProducts,
-    });
-    if (response.data.url) {
-      window.location = response.data.url;
-    }
+  async function Notification() {
+    alert("Thanks For Choosing Us!");
   }
   let total = 0;
   for (const productId of cartProducts) {
@@ -239,8 +228,8 @@ export default function CartPage() {
                 name="country"
                 onChange={(ev) => setCountry(ev.target.value)}
               />
-              <Button black block onClick={goToPayment}>
-                Continue to payment
+              <Button black block onClick={Notification}>
+                Buy
               </Button>
             </Box>
           )}
